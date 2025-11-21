@@ -43,8 +43,10 @@ Los usuarios pueden:
    cd Proyecto-Kaeli
 
 2.Crear entorno virtual e instalar dependencias:
-
+```bash
 python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 pip install -r requirements.txt
+
+
