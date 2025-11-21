@@ -33,7 +33,6 @@ Los usuarios pueden:
 │── README.md # Este archivo 
 │── requirements.txt # Dependencias del proyecto
 
-
 ---
 
 ## ⚙️ Instalación y Uso
@@ -48,5 +47,48 @@ python -m venv venv
 source venv/bin/activate   # Linux/Mac
 venv\Scripts\activate      # Windows
 pip install -r requirements.txt
+```
+
+3.Ejecutar aplicacion
+```bash
+python run.py
+```
+4.Acceder desde el navegador:
+http://localhost:5000
+
+---
+
+👥 Equipo
+Sebastián Olguin – Backend, scraping, lógica de comparación, base de datos
+
+Sebastián Ayenao – Frontend, UX/UI, diseño de interfaz web
+
+Ambos – Documentación y QA
+
+---
+
+Roadmap
+[x] Registro e inicio de sesión
+
+[ ] Scraping básico (Jumbo, Líder)
+
+[x] Comparación de precios
+
+[x] Carrito de compras simulado
+
+[ ] Sistema de reseñas y votaciones
+
+[x] Asistente IA básico
+
+[x] Migración futura a PostgreSQL
+
+[ ] App móvil
+
+---
+
+📜 Licencia
+Este proyecto es académico y no está destinado a producción comercial. Uso libre para fines educativos.
+
+
 
 
