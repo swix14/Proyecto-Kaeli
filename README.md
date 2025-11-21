@@ -26,6 +26,7 @@ Los usuarios pueden:
 
 ## 📂 Estructura del repositorio
 │── kaeli-mvp/ # Código fuente (Flask, scraping, lógica de negocio) 
+
 │── tests/ # Pruebas unitarias con pytest 
 │── docs/ # Documentación (requirements.md, implementation_plan.md) 
 │── diagrams/ # Diagramas UML (clases, casos de uso, despliegue) 
