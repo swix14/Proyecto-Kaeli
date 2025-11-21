@@ -28,10 +28,15 @@ Los usuarios pueden:
 │── kaeli-mvp/ # Código fuente (Flask, scraping, lógica de negocio) 
 
 │── tests/ # Pruebas unitarias con pytest 
+
 │── docs/ # Documentación (requirements.md, implementation_plan.md) 
+
 │── diagrams/ # Diagramas UML (clases, casos de uso, despliegue) 
+
 │── data/ # Archivos JSON con precios y logs 
+
 │── README.md # Este archivo 
+
 │── requirements.txt # Dependencias del proyecto
 
 ---
