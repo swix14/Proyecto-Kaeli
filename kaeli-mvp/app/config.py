@@ -8,7 +8,7 @@ class ConfiguracionGlobal:
         if cls._instance is None:
             cls._instance = super().__new__(cls)
             
-            # Configuración básica
+            
             cls._instance.api_key = "kaeli_2024"
             cls._instance.supermercados_activos = ["jumbo", "lider", "santa_isabel"]
             
