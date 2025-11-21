@@ -64,12 +64,12 @@ http://localhost:5000
 
 ---
 
-👥 Equipo
-Sebastián Olguin – Backend, scraping, lógica de comparación, base de datos
+##👥 Equipo
+- Sebastián Olguin – Backend, scraping, lógica de comparación, base de datos
 
-Sebastián Ayenao – Frontend, UX/UI, diseño de interfaz web
+- Sebastián Ayenao – Frontend, UX/UI, diseño de interfaz web
 
-Ambos – Documentación y QA
+- Ambos – Documentación y QA
 
 ---
 
@@ -92,7 +92,7 @@ Roadmap
 
 ---
 
-📜 Licencia
+##📜 Licencia
 Este proyecto es académico y no está destinado a producción comercial. Uso libre para fines educativos.
 
 
