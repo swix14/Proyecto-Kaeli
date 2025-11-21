@@ -17,7 +17,7 @@ Los usuarios pueden:
 - **Backend:** Python 3.10+ con Flask
 - **Frontend:** HTML, CSS, JavaScript
 - **Web Scraping:** BeautifulSoup4, Requests, lxml
-- **Base de Datos:** JSON (MVP) / PostgreSQL (futuro)
+- **Base de Datos:** PostgreSQL (futuro)
 - **Autenticación:** Flask-JWT-Extended
 - **Control de versiones:** Git + GitHub
 - **Diagramas UML:** PlantUML / Mermaid
