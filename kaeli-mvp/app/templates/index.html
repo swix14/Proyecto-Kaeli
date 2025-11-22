@@ -348,10 +348,20 @@ function renderProductDetail(data){
     reviewList.innerHTML = "<p>Aún no hay reseñas para este producto.</p>";
   } else {
     data.reseñas.forEach(review=>{
-      const li = document.createElement('li'); li.className='review-item';
-      li.innerHTML = `<strong>${review.nombre_usuario}</strong><p>${review.comentario}</p>`;
-      reviewList.appendChild(li);
-    });
+  const li = document.createElement('li'); 
+  li.className = 'review-item';
+  li.innerHTML = `
+    <strong>${review.nombre_usuario}</strong>
+    <p>${review.comentario}</p>
+    <div class="review-votes">
+      👍 ${review.votos_utiles} 
+      <button class="btn-vote" data-id="${review.id_resena}">
+        ${review.ya_vote ? "Quitar voto" : "Votar útil"}
+      </button>
+    </div>
+  `;
+  reviewList.appendChild(li);
+});
   }
   // show form if logged
   if(authToken){ reviewForm.classList.remove('hidden'); reviewProductKey.value = data.producto_key; }
@@ -359,16 +369,32 @@ function renderProductDetail(data){
   $('#btn-back-home').onclick = ()=>showView('view-home');
 }
 
-/* submit reseña */
+//* submit reseña */
 reviewForm.onsubmit = async e => {
   e.preventDefault();
   const comment = reviewComment.value.trim();
   const productKey = reviewProductKey.value;
   if(!comment) return;
   const payload = { producto_key: productKey, comentario: comment };
-  const data = await callApi('/api/reseñas','POST',payload,true);
-  if(data){ showError("¡Reseña publicada!", true); reviewComment.value=''; handleShowDetail(productKey); }
+  const data = await callApi('/api/resenas','POST',payload,true);
+  if(data){ 
+    showError("¡Reseña publicada!", true); 
+    reviewComment.value=''; 
+    handleShowDetail(productKey); 
+  }
 };
+
+/* listener para votos */
+reviewList.addEventListener('click', async e => {
+  if(e.target.classList.contains('btn-vote')){
+    const idResena = e.target.dataset.id;
+    const data = await callApi(`/api/resenas/vote/${idResena}`, 'POST', {}, true);
+    if(data){
+      showError(`Voto ${data.accion}`, true);
+      handleShowDetail(reviewProductKey.value); // refresca el detalle
+    }
+  }
+});
 
 /* ---------- Carrito (básico) ---------- */
 detailContent.onclick = function(e){
