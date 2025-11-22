@@ -1,0 +1,48 @@
+@startuml
+left to right direction
+
+actor Usuario
+actor AsistenteIA
+actor Administrador
+
+Usuario --> (Registrar usuario)
+Usuario --> (Iniciar sesión)
+Usuario --> (Buscar productos)
+Usuario --> (Comparar precios)
+Usuario --> (Dejar reseña)
+Usuario --> (Votar reseña)
+Usuario --> (Ver perfil)
+Usuario --> (Gestionar lista de deseos)
+Usuario --> (Agregar al carrito)
+Usuario --> (Recibir recomendaciones)
+Usuario --> (Reportar problema)
+
+AsistenteIA --> (Proveer asistencia)
+AsistenteIA --> (Responder preguntas)
+AsistenteIA --> (Sugerir productos)
+AsistenteIA --> (Ofrecer soporte técnico)
+
+Administrador --> (Gestionar usuarios)
+Administrador --> (Gestionar productos)
+Administrador --> (Gestionar reseñas)
+Administrador --> (Generar reportes)
+Administrador --> (Configurar sistema)
+
+(Registrar usuario) --> (Iniciar sesión) : <<include>>
+(Buscar productos) --> (Iniciar sesión) : <<include>>
+(Comparar precios) --> (Iniciar sesión) : <<include>>
+(Dejar reseña) --> (Iniciar sesión) : <<include>>
+(Votar reseña) --> (Iniciar sesión) : <<include>>
+(Ver perfil) --> (Iniciar sesión) : <<include>>
+(Gestionar lista de deseos) --> (Iniciar sesión) : <<include>>
+(Agregar al carrito) --> (Iniciar sesión) : <<include>>
+(Recibir recomendaciones) --> (Iniciar sesión) : <<include>>
+(Reportar problema) --> (Iniciar sesión) : <<include>>
+(Proveer asistencia) --> (Responder preguntas) : <<include>>
+(Proveer asistencia) --> (Sugerir productos) : <<include>>
+(Gestionar usuarios) --> (Iniciar sesión) : <<include>>
+(Gestionar productos) --> (Iniciar sesión) : <<include>>
+(Gestionar reseñas) --> (Iniciar sesión) : <<include>>
+(Generar reportes) --> (Iniciar sesión) : <<include>>
+(Configurar sistema) --> (Iniciar sesión) : <<include>>
+@enduml
