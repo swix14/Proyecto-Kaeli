@@ -12,10 +12,10 @@ class Resena(db.Model):
     __tablename__ = 'resenas'  # sin acentos para evitar problemas en SQL
 
     id_resena = db.Column(db.Integer, primary_key=True)
-    id_usuario = db.Column(db.Integer, nullable=False)
-    nombre_usuario = db.Column(db.String(100))
-    producto_key = db.Column(db.String(100), nullable=False)
-    comentario = db.Column(db.Text, nullable=False)
+    id_usuario = db.Column(db.Integer, nullable=False, index=True)
+    nombre_usuario = db.Column(db.String(80), nullable=False)
+    producto_key = db.Column(db.String(64), nullable=False, index=True)
+    comentario = db.Column(db.String(1000), nullable=False)
 
     votantes = db.relationship('Usuario', secondary=tabla_votos, backref='votos_dados', lazy='dynamic')
 
