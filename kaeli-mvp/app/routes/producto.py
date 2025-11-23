@@ -2,10 +2,17 @@ from flask import Blueprint, jsonify, current_app
 from flask_jwt_extended import verify_jwt_in_request, get_jwt_identity
 from ..scraping.factory import ScrapingFactory
 from ..models import Resena
+from ..scraping.mock_data import MOCK_PRODUCTOS   # 👈 importa tu diccionario
 
 bp = Blueprint('producto', __name__, url_prefix='/api')
 factory = ScrapingFactory()
 
+# 🔹 Nuevo endpoint: devuelve TODOS los productos mock
+@bp.route('/productos', methods=['GET'])
+def get_all_productos():
+    return jsonify(MOCK_PRODUCTOS)
+
+# 🔹 Comparar precios de un producto en supermercados activos
 @bp.route('/comparar/<string:producto_nombre>')
 def comparar_precios(producto_nombre):
     try:
@@ -24,6 +31,7 @@ def comparar_precios(producto_nombre):
             pass
     return jsonify(resultados)
 
+# 🔹 Detalle de un producto específico
 @bp.route('/producto/<string:producto_key>', methods=['GET'])
 def get_detalle_producto(producto_key):
     precios = []
@@ -45,9 +53,10 @@ def get_detalle_producto(producto_key):
 
     resenas = Resena.obtener_por_producto(producto_key, usuario_id)
     nombre = precios[0].get("producto") if precios else "Producto"
+
     return jsonify({
-    "producto_key": producto_key,
-    "nombre_generico": nombre,
-    "precios": precios,
-    "reseñas": resenas   # 👈
-}), 200
+        "producto_key": producto_key,
+        "nombre_generico": nombre,
+        "precios": precios,
+        "reseñas": resenas
+    }), 200

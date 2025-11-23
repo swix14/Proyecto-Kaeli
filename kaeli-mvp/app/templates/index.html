@@ -40,7 +40,7 @@ nav{display:flex;gap:20px}
 /* home */
 .search-container{text-align:center;margin:20px 0}
 .search-container input{width:70%;padding:15px;font-size:1.05em;border:1px solid var(--kaeli-border);border-radius:8px}
-#results-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:20px;margin-top:20px}
+#results-grid{display: flex;flex-direction: column;gap: 20px;margin-top: 20px;}
 .product-card{background:var(--kaeli-white);border:1px solid var(--kaeli-border);border-radius:8px;box-shadow:0 2px 5px rgba(0,0,0,.03);overflow:hidden;transition:.15s}
 .product-card-body{padding:20px;cursor:pointer}
 .product-card-store{font-size:1.1em;font-weight:700;padding:12px;border-bottom:1px solid var(--kaeli-border)}
@@ -156,7 +156,45 @@ let currentUser = null;
 let allProducts = [];
 const productKeys = ["arroz","fideos","azucar","sal","cafe"];
 const EMOJI_MAP_STORE = {"lider":"🔵","jumbo":"🟢","santa-isabel":"🔴"};
-const EMOJI_MAP_PRODUCT = {"arroz":"🍚","fideos":"🍝","azucar":"🍬","sal":"🧂","cafe":"☕️","default":"🛒"};
+const EMOJI_MAP_PRODUCT = {
+  "arroz":"🍚",
+  "fideos":"🍝",
+  "azucar":"🍬",
+  "sal":"🧂",
+  "cafe":"☕️",
+  "te":"🍵",
+  "aceite":"🫒",
+  "leche":"🥛",
+  "pan":"🍞",
+  "mantequilla":"🧈",
+  "queso":"🧀",
+  "jamon":"🥓",
+  "pollo":"🍗",
+  "carne":"🥩",
+  "pescado":"🐟",
+  "huevos":"🥚",
+  "yogurt":"🍶",
+  "cereal":"🥣",
+  "galletas":"🍪",
+  "chocolate":"🍫",
+  "helado":"🍦",
+  "jugo":"🧃",
+  "bebida":"🥤",
+  "agua":"💧",
+  "vino":"🍷",
+  "cerveza":"🍺",
+  "pasta_dental":"🪥",
+  "shampoo":"🧴",
+  "jabon":"🧼",
+  "detergente":"🧺",
+  "lavaloza":"🧽",
+  "papel_higienico":"🧻",
+  "servilletas":"📄",
+  "pañales":"👶",
+  "toallas_higienicas":"🌸",
+  "default":"🛒"
+};
+
 const $ = s => document.querySelector(s);
 
 /* ---------- Elementos ---------- */
@@ -270,15 +308,27 @@ cartModal.onclick = e => { if(e.target===cartModal) cartModal.classList.add('hid
 /* ---------- Products & rendering ---------- */
 async function loadAllProducts(){
   resultsGrid.innerHTML = "<h3>Cargando productos...</h3>";
-  const promises = productKeys.map(async key=>{
-    const results = await callApi(`/api/comparar/${key}`);
-    if(results) return results.map(item => ({ ...item, product_key: key }));
-    return [];
+  const data = await callApi("/api/productos");
+  if(!data) return;
+
+  // Convertir diccionario en array de productos (solo uno por producto)
+  allProducts = Object.entries(data).map(([key, producto]) => {
+    // elegir un precio representativo (ej: el mínimo)
+    const precios = Object.values(producto.precios);
+    const precioMin = Math.min(...precios);
+    return {
+      product_key: key,
+      producto: producto.nombre_generico,
+      precio: precioMin
+    };
   });
-  const arr = await Promise.all(promises);
-  allProducts = arr.flat().filter(r=>r && !r.error);
+
   renderProducts(allProducts);
+
+
 }
+
+
 function renderProducts(products){
   resultsGrid.innerHTML = "";
   if(products.length===0){ resultsGrid.innerHTML = "<p>No se encontraron productos.</p>"; return; }
@@ -303,6 +353,8 @@ function renderProductCard(item){
   `;
   return card;
 }
+
+
 resultsGrid.onclick = function(e){
   const body = e.target.closest('.product-card-body');
   if(body){ const productKey = body.dataset.key; handleShowDetail(productKey); }

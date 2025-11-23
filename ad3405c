@@ -1,0 +1,33 @@
+[33mb442704[m[33m ([m[1;36mHEAD[m[33m -> [m[1;32mdevelop[m[33m, [m[1;31morigin/develop[m[33m)[m Merge fix update 22/11/2025 usando la versión del merge
+[33mfd9f150[m eliminacion cache
+[33me35e99d[m nose
+[33ma4d3499[m Merge branch 'develop' of https://github.com/swix14/Proyecto-Kaeli into develop
+[33ma12ea6b[m vuelta hacia atras
+[33m2913d14[m Reapply "Reapply "operativo""
+[33ma7d5325[m Revert "Reapply "operativo""
+[33m91a1217[m Reapply "operativo"
+[33m2396603[m fail
+[33m6869a3a[m Revert "operativo"
+[33mef01a05[m Funcional V2
+[33mad3405c[m operativo
+[33m2ac31e6[m Revert "Update resena.py"
+[33mb010297[m Update resena.py
+[33mea47e53[m Delete requeriments.txt
+[33m2b7536b[m fix update 22/11/2025
+[33md05d95e[m Update database section in README.md
+[33m367a7ee[m Change database mention to PostgreSQL
+[33m1441e10[m Update formatting and headings in README.md
+[33m0cb594c[m Update README.md
+[33md69e584[m Update repository structure in README
+[33mabab56b[m Add directory structure details to README
+[33m3027f0d[m Update README with installation steps and team details
+[33m9f85c45[m Update README.md
+[33mad3a54a[m Revise README with project details and installation steps
+[33ma289feb[m diagramas y docs
+[33maba8d19[m requerimientos y plan de implementacion
+[33ma0599da[m subida documentos kaeli
+[33m91e1911[m subo diagramas
+[33m15ff1c0[m screenshots informe
+[33mb86f7ea[m librerias de requeriments
+[33mab6df31[m Primer comit para usarlo en varios dispositivos
+[33m834bbfd[m Initial commit
