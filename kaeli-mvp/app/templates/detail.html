@@ -1,0 +1,54 @@
+<script>
+  document.addEventListener("DOMContentLoaded", async () => {
+    const productKey = "{{ product_key }}"; // viene de la ruta main.detalle
+
+    // Helpers para extraer y formatear precios
+    const extractPrice = (info) => {
+      if (info == null) return null;
+      if (typeof info === "number") return info;
+      if (typeof info === "object") {
+        // intenta en orden común: precio, precio_min, cualquier primer valor numérico
+        if (typeof info.precio === "number") return info.precio;
+        if (typeof info.precio_min === "number") return info.precio_min;
+        const firstNumeric = Object.values(info).find(v => typeof v === "number");
+        return typeof firstNumeric === "number" ? firstNumeric : null;
+      }
+      return null;
+    };
+
+    const formatPrice = (n) => {
+      if (typeof n !== "number") return "N/D";
+      return `$${n.toLocaleString("es-CL")}`;
+    };
+
+    try {
+      const res = await fetch(`/api/producto/${productKey}`);
+      const data = await res.json();
+
+      document.getElementById("detail-title").textContent = data.nombre_generico || "Producto";
+      const list = document.getElementById("detail-prices");
+      list.innerHTML = "";
+
+      // Ordena por precio ascendente para mejor lectura
+      const entries = Object.entries(data.precios || {}).map(([supermercado, info]) => {
+        return [supermercado, extractPrice(info)];
+      }).filter(([, precio]) => typeof precio === "number")
+        .sort((a, b) => a[1] - b[1]);
+
+      if (entries.length === 0) {
+        const li = document.createElement("li");
+        li.textContent = "No hay precios disponibles.";
+        list.appendChild(li);
+      } else {
+        entries.forEach(([supermercado, precio]) => {
+          const li = document.createElement("li");
+          li.textContent = `${supermercado}: ${formatPrice(precio)}`;
+          list.appendChild(li);
+        });
+      }
+    } catch(err) {
+      document.getElementById("detail-title").textContent = "Error al cargar detalle.";
+      console.error(err);
+    }
+  });
+</script>

@@ -1,0 +1,24 @@
+<!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Login - Kaeli</title>
+  <link rel="stylesheet" href="{{ url_for('static', filename='css/styles.css') }}">
+</head>
+<body>
+  <nav class="navbar">
+    <h1>🛒 Kaeli</h1>
+    <a href="{{ url_for('index') }}">Inicio</a>
+  </nav>
+
+  <section class="form-section">
+    <h2>Iniciar sesión</h2>
+    <form method="POST" action="{{ url_for('auth.login_user') }}">
+      <input type="email" name="correo" placeholder="Correo" required>
+      <input type="password" name="password" placeholder="Contraseña" required>
+      <button type="submit">Entrar</button>
+    </form>
+  </section>
+</body>
+</html>
