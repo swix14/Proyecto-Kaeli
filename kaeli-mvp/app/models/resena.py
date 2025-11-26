@@ -9,7 +9,7 @@ tabla_votos = db.Table(
 )
 
 class Resena(db.Model):
-    __tablename__ = 'resenas'  # sin acentos para evitar problemas en SQL
+    __tablename__ = 'resenas'  
 
     id_resena = db.Column(db.Integer, primary_key=True)
     id_usuario = db.Column(db.Integer, nullable=False)

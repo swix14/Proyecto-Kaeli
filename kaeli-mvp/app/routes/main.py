@@ -4,7 +4,7 @@ bp = Blueprint("main", __name__)
 
 @bp.route("/")
 def index():
-    # Renderiza la página principal (los productos se cargan vía JS desde /api/productos)
+    # Renderiza página principal 
     return render_template("index.html")
 
 @bp.route("/login")
@@ -17,5 +17,5 @@ def register_page():
 
 @bp.route("/detalle/<product_key>")
 def detalle(product_key):
-    # Renderiza la página de detalle y le pasa la clave del producto
+    
     return render_template("detail.html", product_key=product_key)

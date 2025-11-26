@@ -13,7 +13,7 @@ def create_app(testing=False):
     app.config["SQLALCHEMY_DATABASE_URI"] = config_global.SQLALCHEMY_DATABASE_URI
     app.config["SQLALCHEMY_TRACK_MODIFICATIONS"] = False
 
-    # Inicializar extensiones
+    # Inicializa extensiones
     db.init_app(app)
     jwt.init_app(app)
     Migrate(app, db)
@@ -25,7 +25,7 @@ def create_app(testing=False):
     from .routes import register_blueprints
     register_blueprints(app)
 
-    # Ruta principal para mostrar index.html
+    # Ruta principal index.html
     @app.route("/")
     def index():
         return render_template("index.html")

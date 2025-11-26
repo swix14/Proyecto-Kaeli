@@ -3,7 +3,7 @@
 <head>
 <meta charset="utf-8" />
 <meta name="viewport" content="width=device-width,initial-scale=1" />
-<title>Kaeli - Tu Mejor Precio Siempre (v1 corregido)</title>
+<title>Kaeli - Tu Mejor Precio Siempre </title>
 <style>
 :root{
   --kaeli-blue:#007aff;--kaeli-blue-dark:#005ecb;--kaeli-green:#00a859;
@@ -124,16 +124,16 @@ input, textarea {border: 1px solid #ccc;border-radius: 6px;padding: 8px;margin: 
 
 <main class="container">
   <section class="view" id="view-home">
-  <!-- Buscador arriba -->
+  
   <div class="search-container">
     <input type="text" id="filter-producto" 
            placeholder="Filtra por producto o tienda (ej: arroz, jumbo)..." 
            autocomplete="off">
   </div>
 
-  <!-- Layout: sidebar + productos -->
+  
   <div class="layout">
-    <!-- Sidebar con filtros -->
+    
     <aside class="sidebar">
   <h3>Filtros</h3>
   <ul>
@@ -151,9 +151,9 @@ input, textarea {border: 1px solid #ccc;border-radius: 6px;padding: 8px;margin: 
   </select>
 </aside>
 
-    <!-- Productos -->
+    
     <div id="results-grid" class="products">
-      <!-- Aquí se renderizan tus product-card dinámicamente -->
+     
     </div>
   </div>
 </section>
@@ -212,7 +212,7 @@ input, textarea {border: 1px solid #ccc;border-radius: 6px;padding: 8px;margin: 
 </div>
 
 <script>
-/* ---------- Estado global ---------- */
+/* Estado global */
 let authToken = null;
 let currentUser = null;
 let allProducts = [];
@@ -271,7 +271,7 @@ function getEmoji(productKey) {
 
 const $ = s => document.querySelector(s);
 
-/* ---------- Elementos ---------- */
+/* Elementos */
 const views = document.querySelectorAll('.view');
 const navLinkComparator = $('#nav-comparador');
 const navLinkAssistant = $('#nav-asistente');
@@ -296,7 +296,7 @@ const reviewForm = $('#review-form');
 const reviewComment = $('#review-comment');
 const reviewProductKey = $('#review-product-key');
 
-/* ---------- Helpers ---------- */
+/* Helpers */
 function showError(msg, success=false){
   errorToast.textContent = msg;
   errorToast.style.background = success ? "var(--kaeli-green)" : "var(--kaeli-red)";
@@ -311,7 +311,7 @@ function showView(id){
   if(id==='view-home' && allProducts.length===0) loadAllProducts();
 }
 
-/* ---------- API helper ---------- */
+/* API helper */
 async function callApi(endpoint, method='GET', body=null, needsAuth=false){
   const headers = {'Content-Type':'application/json'};
   const options = {method, headers};
@@ -348,7 +348,7 @@ async function callApi(endpoint, method='GET', body=null, needsAuth=false){
 }
 
 
-/* ---------- Auth ---------- */
+/* Auth */
 registerForm.onsubmit = async e => {
   e.preventDefault();
   const payload = {
@@ -388,7 +388,7 @@ function updateUIAfterLogout(){
   showView('view-home');
 }
 
-/* ---------- Navigation ---------- */
+/* Navigation */
 $('#nav-logo').onclick = ()=>showView('view-home');
 $('#nav-comparador').onclick = ()=>showView('view-home');
 $('#nav-asistente').onclick = ()=>showView('view-assistant');
@@ -399,7 +399,7 @@ $('#nav-cart').onclick = async ()=>{ await loadUserCart(); cartModal.classList.r
 $('#modal-close').onclick = ()=>cartModal.classList.add('hidden');
 cartModal.onclick = e => { if(e.target===cartModal) cartModal.classList.add('hidden'); };
 
-/* ---------- Products & rendering ---------- */
+/* Products & rendering */
 async function loadAllProducts(){
   resultsGrid.innerHTML = "<h3>Cargando productos...</h3>";
   const data = await callApi("/api/productos");
@@ -450,7 +450,7 @@ function renderProductCard(item){
   return card;
 }
 
-/* ---------- Interacciones ---------- */
+/* Interacciones */
 // Click en producto → detalle
 resultsGrid.onclick = function(e){
   const body = e.target.closest('.product-card-body');
@@ -470,31 +470,31 @@ inputFiltro.oninput = function(){
   });
 };
 
-/* ---------- Sidebar filtros ---------- */
-// Escuchar cambios en los checkboxes
+/* Sidebar filtros */
+// Escucha checkboxes
 document.querySelectorAll('.sidebar input[type="checkbox"]').forEach(cb => {
   cb.addEventListener('change', aplicarFiltros);
 });
 
-// Escuchar cambios en el select de orden
+// Escuchar cambios select orden
 document.getElementById('sort-select').addEventListener('change', aplicarFiltros);
 
 function aplicarFiltros() {
-  // 1. Obtener filtros activos
+  //  Obtener filtros activos
   const activos = Array.from(document.querySelectorAll('.sidebar input[type="checkbox"]:checked'))
                        .map(cb => cb.value.toLowerCase());
 
-  // 2. Clonar productos originales
+  //  Clonar productos originales
   let productosFiltrados = [...allProducts];
 
-  // 3. Filtrar por product_key
+  //  Filtrar por product_key
   if (activos.length > 0) {
   productosFiltrados = productosFiltrados.filter(p =>
     activos.some(f => (p.product_key || '').toLowerCase().startsWith(f))
   );
 }
 
-  // 4. Ordenar según select
+  //  Ordenar según select
   const orden = document.getElementById('sort-select').value;
   if (orden === 'precio-asc') {
     productosFiltrados.sort((a, b) => a.precio - b.precio);
@@ -502,11 +502,11 @@ function aplicarFiltros() {
     productosFiltrados.sort((a, b) => b.precio - a.precio);
   }
 
-  // 5. Renderizar
+  //  Renderizar
   renderProducts(productosFiltrados);
 }
 
-/* ---------- Detail + reseñas ---------- */
+/* Detail + reseñas */
 async function handleShowDetail(productKey){
   showView('view-detail');
   detailContent.innerHTML = "<h3>Cargando detalle...</h3>";
@@ -586,7 +586,7 @@ reviewList.addEventListener('click', async e => {
   }
 });
 
-/* ---------- Carrito (básico) ---------- */
+/* Carrito (básico) */
 detailContent.onclick = function(e){
   if(e.target.classList.contains('btn-add-cart-detail')){
     const producto = { nombre: e.target.dataset.nombre, precio: parseInt(e.target.dataset.precio||0,10), supermercado: e.target.dataset.supermercado };
@@ -630,7 +630,7 @@ cartItemsList.onclick = async function(e){
   if(data) updateCartUI(data);
 };
 
-/* ---------- Chat ---------- */
+/* Chat */
 chatForm.onsubmit = async e => {
   e.preventDefault();
   const consulta = chatInput.value.trim(); if(!consulta) return;
@@ -642,7 +642,7 @@ function appendChatMessage(message,sender){
   const d = document.createElement('div'); d.className = `chat-msg chat-msg-${sender}`; d.textContent = message; chatBox.appendChild(d); chatBox.scrollTop = chatBox.scrollHeight;
 }
 
-/* ---------- Init ---------- */
+/* Init */
 function initApp(){
   const token = localStorage.getItem('kaeliToken');
   if(token){ authToken = token; currentUser = JSON.parse(localStorage.getItem('kaeliUser')); updateUIAfterLogin(); }

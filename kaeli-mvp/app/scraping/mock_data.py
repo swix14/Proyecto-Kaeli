@@ -140,8 +140,8 @@ MOCK_PRODUCTOS = {
         "precios": {"lider": 2500, "jumbo": 2600, "santa_isabel": 2550}
     },
      "fideos_canutos": {
-    "nombre_generico": "Fideos Canutos Carozzi Bolsa, 400 gr",
-    "precios": {"lider": 990, "jumbo": 1000, "santa_isabel": 1070}
+        "nombre_generico": "Fideos Canutos Carozzi Bolsa, 400 gr",
+        "precios": {"lider": 990, "jumbo": 1000, "santa_isabel": 1070}
     },
     "fideos_penne": {
         "nombre_generico": "Fideos Penne Rigate Lucchetti Bolsa, 400 gr",

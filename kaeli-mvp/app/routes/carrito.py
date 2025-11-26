@@ -5,7 +5,7 @@ from ..extensions import db
 
 bp = Blueprint('carrito', __name__, url_prefix='/api')
 
-# Funciones del carrito basadas en tu lógica original
+# Funciones del carrito basadas lógica 
 def obtener_carrito(id_usuario):
     items_sql = CarritoItem.query.filter_by(usuario_id=id_usuario).all()
     items_frontend = []

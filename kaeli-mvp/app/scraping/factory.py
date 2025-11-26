@@ -1,4 +1,3 @@
-# app/scraping/factory.py
 from .jumbo import JumboScraping
 from .lider import LiderScraping
 from .santa_isabel import SantaIsabelScraping

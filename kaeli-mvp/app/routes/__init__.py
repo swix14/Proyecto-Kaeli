@@ -11,4 +11,4 @@ def register_blueprints(app):
     app.register_blueprint(resena_bp)
     app.register_blueprint(producto_bp)
     app.register_blueprint(asistente_bp)
-    app.register_blueprint(main_bp)   # /, /login, /register
+    app.register_blueprint(main_bp)  

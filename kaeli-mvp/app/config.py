@@ -3,7 +3,7 @@ import os
 class ConfiguracionGlobal:
     def __init__(self):
         self.api_key = os.getenv("KAELI_API_KEY", "kaeli_dev")
-        # Parsear lista de supermercados activos desde env (fallback al default)
+        
         super_activos_env = os.getenv("SUPER_ACTIVOS")
         if super_activos_env:
             self.supermercados_activos = [s.strip() for s in super_activos_env.split(",")]

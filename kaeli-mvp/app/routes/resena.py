@@ -19,7 +19,7 @@ def ver_resenas(producto_key):
         pass
     try:
         resenas = Resena.obtener_por_producto(producto_key, usuario_id)
-        # 👇 aseguramos que sean dicts con nombre_usuario y comentario
+        
         serializadas = [
             {
                 "id_resena": r.id_resena,
@@ -48,7 +48,7 @@ def crear_resena():
             datos.get('producto_key'),
             datos.get('comentario')
         )
-        db.session.commit()   # <-- este commit es clave
+        db.session.commit()   
         return jsonify({
             "id_resena": nueva.id_resena,
             "producto_key": nueva.producto_key,
