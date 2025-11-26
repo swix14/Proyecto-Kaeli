@@ -138,5 +138,69 @@ MOCK_PRODUCTOS = {
     "toallas_higienicas": {
         "nombre_generico": "Toallas Higiénicas Nosotras Pack, 20 un",
         "precios": {"lider": 2500, "jumbo": 2600, "santa_isabel": 2550}
+    },
+     "fideos_canutos": {
+    "nombre_generico": "Fideos Canutos Carozzi Bolsa, 400 gr",
+    "precios": {"lider": 990, "jumbo": 1000, "santa_isabel": 1070}
+    },
+    "fideos_penne": {
+        "nombre_generico": "Fideos Penne Rigate Lucchetti Bolsa, 400 gr",
+        "precios": {"lider": 1100, "jumbo": 1150, "santa_isabel": 1120}
+    },
+    "fideos_fusilli": {
+        "nombre_generico": "Fideos Fusilli Don Vittorio Bolsa, 400 gr",
+        "precios": {"lider": 1200, "jumbo": 1250, "santa_isabel": 1220}
+    },
+    "fideos_lasagna": {
+        "nombre_generico": "Fideos Espirales Carozzi Bolsa, 400 gr",
+        "precios": {"lider": 1000, "jumbo": 980, "santa_isabel": 970}
+    },    
+    "arroz_tucapel": {
+        "nombre_generico": "Arroz Tucapel Grado 1 Bolsa, 1 kg",
+        "precios": {"lider": 1150, "jumbo": 1200, "santa_isabel": 1180}
+    },
+    "arroz_miraflores": {
+        "nombre_generico": "Arroz Miraflores Grano Largo Bolsa, 1 kg",
+        "precios": {"lider": 1100, "jumbo": 1150, "santa_isabel": 1130}
+    },
+    "arroz_integral": {
+        "nombre_generico": "Arroz Integral Carozzi Bolsa, 1 kg",
+        "precios": {"lider": 1400, "jumbo": 1450, "santa_isabel": 1420}
+    },
+    "arroz_basmati": {
+        "nombre_generico": "Arroz Basmati Gallo Bolsa, 500 gr",
+        "precios": {"lider": 2500, "jumbo": 2600, "santa_isabel": 2550}
+    },
+    "leche_entera": {
+        "nombre_generico": "Leche Entera Soprole Caja, 1 lt",
+        "precios": {"lider": 950, "jumbo": 980, "santa_isabel": 970}
+    },
+    "leche_descremada": {
+        "nombre_generico": "Leche Descremada Colún Caja, 1 lt",
+        "precios": {"lider": 930, "jumbo": 960, "santa_isabel": 940}
+    },
+    "leche_sin_lactosa": {
+        "nombre_generico": "Leche Sin Lactosa Loncoleche Caja, 1 lt",
+        "precios": {"lider": 1200, "jumbo": 1250, "santa_isabel": 1220}
+    },
+    "leche_chocolate": {
+        "nombre_generico": "Leche Sabor Chocolate Soprole Caja, 1 lt",
+        "precios": {"lider": 1300, "jumbo": 1350, "santa_isabel": 1320}
+    },
+    "bebida_kem": {
+    "nombre_generico": "Bebida Kem Botella, 2 lt",
+    "precios": {"lider": 2200, "jumbo": 2300, "santa_isabel": 2250}
+    },
+    "bebida_pepsi": {
+        "nombre_generico": "Bebida Pepsi Botella, 2 lt",
+        "precios": {"lider": 2100, "jumbo": 2200, "santa_isabel": 2150}
+    },
+    "bebida_fanta": {
+        "nombre_generico": "Bebida Fanta Naranja Botella, 2 lt",
+        "precios": {"lider": 2100, "jumbo": 2200, "santa_isabel": 2150}
+    },
+    "bebida_sprite": {
+        "nombre_generico": "Bebida Sprite Botella, 2 lt",
+        "precios": {"lider": 2100, "jumbo": 2200, "santa_isabel": 2150}
     }
 }
