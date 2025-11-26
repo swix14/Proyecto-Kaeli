@@ -82,9 +82,9 @@ http://localhost:5000
 
 [x] Carrito de compras simulado
 
-[ ] Sistema de reseñas y votaciones
+[x] Sistema de reseñas y votaciones
 
-[x] Asistente IA básico
+[ ] Asistente IA básico
 
 [x] Migración futura a PostgreSQL
 
