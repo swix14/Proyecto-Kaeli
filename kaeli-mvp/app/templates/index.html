@@ -87,18 +87,107 @@ input, textarea {border: 1px solid #ccc;border-radius: 6px;padding: 8px;margin: 
 .products {display: grid;grid-template-columns: repeat(auto-fill, minmax(240px, 1fr));gap: 25px;justify-items: start; }
 .sidebar ul li {display: flex;justify-content: space-between; align-items: center;  padding: 6px 0;}
 .sidebar input[type="checkbox"] {width: 18px;   height: 18px;  margin: 0;}
-@media (max-width: 768px) {.layout {grid-template-columns: 1fr; }.sidebar {display: none; }.sidebar.active {display: block; margin-bottom: 15px;}
-#toggleSidebar {display: block;background: var(--kaeli-blue);color: white;border: none;padding: 10px 15px;border-radius: 6px;margin-bottom: 10px;cursor: pointer;}}
-@media (min-width: 769px) {#toggleSidebar {display: none;}}
-@media (max-width: 768px) {#results-grid.products {grid-template-columns: repeat(2, 1fr);gap: 15px;}
-.auth-container .btn {width: 100%;margin-bottom: 12px;}
-header {flex-direction: column;align-items: stretch;padding: 12px 15px;}.auth-buttons {order: -1;width: 100%;justify-content: space-between;margin-bottom: 10px;}nav {flex-wrap: wrap;gap: 10px;width: 100%;justify-content: center;}}
-@media (max-width: 768px) {.detail-layout {grid-template-columns: 1fr;gap: 20px;padding: 15px;}
-#detail-image {height: 250px; font-size: 2.5em;}
-.price-list-item {flex-direction: column; align-items: flex-start;gap: 8px;}
-.review-item {padding: 12px;font-size: 0.95em;}
-#review-form {padding: 15px;}
-.reviews-section h2 {font-size: 1.3em;margin-bottom: 12px;}}
+/* 📱 Ajustes móviles */
+@media (max-width: 768px) {
+  .layout {
+    grid-template-columns: 1fr; /* sidebar arriba */
+  }
+
+  .sidebar {
+    display: none; /* oculto por defecto */
+  }
+  .sidebar.active {
+    display: block; /* se muestra cuando se activa */
+    margin-bottom: 15px;
+  }
+
+  #toggleSidebar {
+    display: block;
+    background: var(--kaeli-blue);
+    color: white;
+    border: none;
+    padding: 10px 15px;
+    border-radius: 6px;
+    margin-bottom: 10px;
+    cursor: pointer;
+  }
+}
+
+/* En desktop el botón no se muestra */
+@media (min-width: 769px) {
+  #toggleSidebar {
+    display: none;
+  }
+}
+/* 📱 Ajustes móviles específicos */
+@media (max-width: 768px) {
+  /* Grilla de productos en 2 columnas */
+  #results-grid.products {
+    grid-template-columns: repeat(2, 1fr);
+    gap: 15px;
+  }
+
+  /* Botones de login/register más visibles y separados */
+  .auth-container .btn {
+    width: 100%;
+    margin-bottom: 12px;
+  }
+
+  /* Header reorganizado */
+  header {
+    flex-direction: column;
+    align-items: stretch;
+    padding: 12px 15px;
+  }
+
+  .auth-buttons {
+    order: -1; /* 👈 mueve login/register arriba */
+    width: 100%;
+    justify-content: space-between;
+    margin-bottom: 10px;
+  }
+
+  nav {
+    flex-wrap: wrap;
+    gap: 10px;
+    width: 100%;
+    justify-content: center;
+  }
+}
+/* 📱 Ajustes móviles para detalle de producto */
+@media (max-width: 768px) {
+  .detail-layout {
+    grid-template-columns: 1fr; /* imagen arriba, info abajo */
+    gap: 20px;
+    padding: 15px;
+  }
+
+  #detail-image {
+    height: 250px; /* imagen más compacta */
+    font-size: 2.5em;
+  }
+
+  .price-list-item {
+    flex-direction: column; /* precio y tienda uno debajo del otro */
+    align-items: flex-start;
+    gap: 8px;
+  }
+
+  .review-item {
+    padding: 12px;
+    font-size: 0.95em; /* texto más compacto */
+  }
+
+  #review-form {
+    padding: 15px;
+  }
+
+  .reviews-section h2 {
+    font-size: 1.3em;
+    margin-bottom: 12px;
+  }
+}
+
 
 </style>
 </head>
