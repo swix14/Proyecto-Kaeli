@@ -171,8 +171,8 @@ MOCK_PRODUCTOS = {
         "nombre_generico": "Arroz Basmati Gallo Bolsa, 500 gr",
         "precios": {"lider": 2500, "jumbo": 2600, "santa_isabel": 2550}
     },
-    "leche_entera": {
-        "nombre_generico": "Leche Entera Soprole Caja, 1 lt",
+    "leche_semidescremada": {
+        "nombre_generico": "Leche Semidescremada Soprole Caja, 1 lt",
         "precios": {"lider": 950, "jumbo": 980, "santa_isabel": 970}
     },
     "leche_descremada": {
